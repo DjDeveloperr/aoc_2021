@@ -29,11 +29,8 @@ function step(
   f: string[],
 ): [string[], number | undefined] {
   let ones = 0, zeroes = 0;
-
   for (let j = 0; j < f.length; j++) {
-    const bit = f[j][index];
-    if (bit === "0") ones++;
-    else zeroes++;
+    f[j][index] === "0" ? ++ones : ++zeroes;
   }
 
   const bit = String(
