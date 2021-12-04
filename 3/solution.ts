@@ -9,11 +9,11 @@ export function solve(numbers: string[]) {
     let ones = 0, zeroes = 0;
     for (const num of numbers) {
       const bit = num[commonLength - i - 1];
-      if (bit === "0") ones++;
+      if (bit === "1") ones++;
       else zeroes++;
     }
 
-    const mcb = ones > zeroes ? 0 : 1;
+    const mcb = ones > zeroes ? 1 : 0;
     const lcb = mcb ^ 1;
 
     gammaRate += mcb * 2 ** i;
@@ -30,11 +30,11 @@ function step(
 ): [string[], number | undefined] {
   let ones = 0, zeroes = 0;
   for (let j = 0; j < f.length; j++) {
-    f[j][index] === "0" ? ++ones : ++zeroes;
+    f[j][index] === "1" ? ++ones : ++zeroes;
   }
 
   const bit = String(
-    ones === zeroes ? (rating ^ 1) : ((ones > zeroes ? 0 : 1) ^ rating),
+    ones === zeroes ? (rating ^ 1) : ((ones > zeroes ? 1 : 0) ^ rating),
   );
 
   f = f.filter((e) => e[index] === bit);
