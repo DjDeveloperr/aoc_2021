@@ -22,26 +22,28 @@ const INPUT_CASE = Deno.readTextFileSync(
 )
   .split("\n").map(Number);
 
-Deno.test("part one", async (t) => {
-  await t.step("example case", () => {
-    const result = solve(EXAMPLE_CASE);
-    assertEquals(result, 7);
+Deno.test("day 1", async (t) => {
+  await t.step("part one", async (t) => {
+    await t.step("example case", () => {
+      const result = solve(EXAMPLE_CASE);
+      assertEquals(result, 7);
+    });
+
+    await t.step("input case", () => {
+      const result = solve(INPUT_CASE);
+      assertEquals(result, 1228);
+    });
   });
 
-  await t.step("input case", () => {
-    const result = solve(INPUT_CASE);
-    assertEquals(result, 1228);
-  });
-});
+  await t.step("part two", async (t) => {
+    await t.step("example case", () => {
+      const result = solvePartTwo(EXAMPLE_CASE);
+      assertEquals(result, 5);
+    });
 
-Deno.test("part two", async (t) => {
-  await t.step("example case", () => {
-    const result = solvePartTwo(EXAMPLE_CASE);
-    assertEquals(result, 5);
-  });
-
-  await t.step("input case", () => {
-    const result = solvePartTwo(INPUT_CASE);
-    assertEquals(result, 1257);
+    await t.step("input case", () => {
+      const result = solvePartTwo(INPUT_CASE);
+      assertEquals(result, 1257);
+    });
   });
 });
