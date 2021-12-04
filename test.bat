@@ -1,2 +1,2 @@
 @echo off
-deno test -A --unstable %*
+deno test --allow-read --unstable %1
