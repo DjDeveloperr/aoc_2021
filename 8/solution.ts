@@ -12,26 +12,22 @@ export function parse(data: string) {
       e.split(" ").map((e) => e.split("").sort().join(""))
     );
     const digits = new Array<string | undefined>(10).fill(undefined);
-    const digiset = new Set(rawDigits);
 
-    for (const digit of digiset) {
+    for (const digit of rawDigits) {
       switch (digit.length) {
         case 1:
           throw new Error("unreachable");
 
         case 2:
           digits[1] = digit;
-          digiset.delete(digit);
           break;
 
         case 3:
           digits[7] = digit;
-          digiset.delete(digit);
           break;
 
         case 4:
           digits[4] = digit;
-          digiset.delete(digit);
           break;
 
         case 5:
@@ -41,7 +37,6 @@ export function parse(data: string) {
 
         case 7:
           digits[8] = digit;
-          digiset.delete(digit);
           break;
       }
     }
