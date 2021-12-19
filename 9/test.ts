@@ -1,37 +1,35 @@
 import { assertEquals } from "std/testing/asserts.ts";
-import { parse, solve, solvePartTwo } from "./solution.ts";
+import { HeightMap } from "./solution.ts";
 
-assertEquals(1, 1);
-
-const EXAMPLE_CASE = parse(
+const EXAMPLE_INPUT = HeightMap.parse(
   Deno.readTextFileSync(new URL("./example_input.txt", import.meta.url)),
 );
-const INPUT_CASE = parse(
+const INPUT = HeightMap.parse(
   Deno.readTextFileSync(new URL("./input.txt", import.meta.url)),
 );
 
-Deno.test("day 4", async (t) => {
+Deno.test("day 9", async (t) => {
   await t.step("part one", async (t) => {
     await t.step("example case", () => {
-      const score = solve(EXAMPLE_CASE);
-      assertEquals(score, 4512);
+      const result = EXAMPLE_INPUT.findSumOfRiskLevels();
+      assertEquals(result, 15);
     });
 
     await t.step("input case", () => {
-      const score = solve(INPUT_CASE);
-      assertEquals(score, 45031);
+      const result = INPUT.findSumOfRiskLevels();
+      assertEquals(result, 588);
     });
   });
 
   await t.step("part two", async (t) => {
     await t.step("example case", () => {
-      const score = solvePartTwo(EXAMPLE_CASE);
-      assertEquals(score, 1924);
+      const result = EXAMPLE_INPUT.solvePartTwo();
+      assertEquals(result, 1134);
     });
 
     await t.step("input case", () => {
-      const score = solvePartTwo(INPUT_CASE);
-      assertEquals(score, 2568);
+      const result = INPUT.solvePartTwo();
+      assertEquals(result, 964712);
     });
   });
 });

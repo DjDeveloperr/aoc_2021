@@ -1,4 +1,4 @@
-import { assertEquals } from "https://deno.land/std@0.116.0/testing/asserts.ts";
+import { assertEquals } from "std/testing/asserts.ts";
 import { solve, solvePartTwo } from "./solution.ts";
 
 const EXAMPLE_CASE = [16, 1, 2, 0, 4, 2, 7, 1, 2, 14];
